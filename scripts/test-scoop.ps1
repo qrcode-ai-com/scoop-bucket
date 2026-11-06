@@ -21,11 +21,12 @@ $env:SCOOP_CACHE = Join-Path $work 'cache'
 $env:SCOOP_GLOBAL = Join-Path $work 'global'
 $env:XDG_CONFIG_HOME = Join-Path $work 'config'
 $shims = Join-Path $env:SCOOP 'shims'
+$buckets = Join-Path $env:SCOOP 'buckets'
 $env:PATH = "$shims;$env:PATH"
 
-# Bootstrap the official Scoop core in its usual directory without a floating installer.
+# Create the directories Scoop enumerates before the first bucket is installed.
 $core = Join-Path $env:SCOOP 'apps/scoop/current'
-New-Item -ItemType Directory -Path $core -Force | Out-Null
+New-Item -ItemType Directory -Path $core, $shims, $buckets -Force | Out-Null
 git -C $core init --quiet
 git -C $core fetch --quiet --depth=1 https://github.com/ScoopInstaller/Scoop.git $scoopCommit
 git -C $core checkout --quiet --detach FETCH_HEAD
@@ -39,7 +40,7 @@ $bucketUrl = if ($UsePublicBucket) {
 }
 & $scoop bucket add qrcode-ai $bucketUrl
 if ($LASTEXITCODE -ne 0) { throw 'Scoop could not add the bucket.' }
-$bucketPath = Join-Path $env:SCOOP 'buckets/qrcode-ai'
+$bucketPath = Join-Path $buckets 'qrcode-ai'
 $bucketCommit = git -C $bucketPath rev-parse HEAD
 $candidateCommit = git -C $root rev-parse HEAD
 if ($bucketCommit -cne $candidateCommit) {
