@@ -25,7 +25,7 @@ $env:PATH = "$shims;$env:PATH"
 
 # Bootstrap the official Scoop core in its usual directory without a floating installer.
 $core = Join-Path $env:SCOOP 'apps/scoop/current'
-New-Item -ItemType Directory -Path $core -Force | Out-Null
+New-Item -ItemType Directory -Path $core, $shims -Force | Out-Null
 git -C $core init --quiet
 git -C $core fetch --quiet --depth=1 https://github.com/ScoopInstaller/Scoop.git $scoopCommit
 git -C $core checkout --quiet --detach FETCH_HEAD
