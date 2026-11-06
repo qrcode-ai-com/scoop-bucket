@@ -1,0 +1,37 @@
+name: Scoop Windows consumer
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      public_bucket:
+        description: Replay installation from the public GitHub bucket
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  install-scan-uninstall:
+    runs-on: windows-2025
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install with Scoop, scan, and uninstall
+        shell: pwsh
+        env:
+          USE_PUBLIC_BUCKET: ${{ inputs.public_bucket }}
+        run: ./scripts/test-scoop.ps1 -UsePublicBucket:($env:USE_PUBLIC_BUCKET -eq 'true')
+      - name: Save consumer receipt
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: scoop-windows-x64-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/scoop-consumer-receipt.json
+          if-no-files-found: error
+          retention-days: 30
