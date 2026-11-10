@@ -1,6 +1,6 @@
 # QR Code AI Scoop bucket
 
-Install `qrscan`, the [QR Code AI](https://qrcode-ai.com/) command-line scanner, with Scoop on Windows x64. It decodes QR codes, barcodes and supported 2D codes from local image files. The scanner returns decoded data as JSON by default and works without a web account.
+Install `qrscan`, the [QR Code AI](https://qrcode-ai.com/en-US/qr-code-scanner/cli) command-line scanner, with Scoop on Windows x64. It decodes QR codes, barcodes and supported 2D codes from local image files. The scanner returns decoded data as JSON by default and works without a web account.
 
 ## Install and scan
 
@@ -13,9 +13,13 @@ qrscan --version
 qrscan '.\my label.png' --profile full
 ```
 
-Replace `my label.png` with your image. For browser workflows, see the planned
-[QR code scanner](https://qrcode-ai.com/en-US/qr-code-scanner) and
-[barcode scanner](https://qrcode-ai.com/en-US/barcode-scanner) pages.
+Replace `my label.png` with your image.
+
+| | QR codes | Barcodes |
+| --- | --- | --- |
+| **Try the scanner live** | [QR code scanner](https://qrcode-ai.com/en-US/qr-code-scanner) | [Barcode scanner](https://qrcode-ai.com/en-US/barcode-scanner) |
+| **Command line guide** | [QR code scanner for the command line](https://qrcode-ai.com/en-US/qr-code-scanner/cli) | [Barcode scanner for the command line](https://qrcode-ai.com/en-US/barcode-scanner/cli) |
+| **Create a code** | [QR code generator](https://qrcode-ai.com/en-US/qr-code-generator) | [Barcode generator](https://qrcode-ai.com/en-US/barcode-generator) |
 
 ## Try a QR code and Code 128 in one image
 
