@@ -9,6 +9,8 @@ if ([Runtime.InteropServices.RuntimeInformation]::OSArchitecture -ne 'X64') {
 $package = 'qrcode-barcode-scanner'
 $scoopCommit = 'e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f' # Scoop v0.6.0
 $scannerCommit = '176ac96ef16ee330dbfc6ada10327d0b4e23a8b2' # Scanner v0.11.0
+# The engine commit that supplies the destination acceptance driver and its truth case.
+$contractCommit = 'de3fa34764e891d167ebc55d01f3761d1289050a'
 $fixtureHash = 'c636e8d56df483ff1ec06dbe9b5bcba226c579f8fc1c3d10c4ccf4e100762ec8'
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $manifestPath = "bucket/$package.json"
@@ -79,6 +81,28 @@ try {
         }
         [ordered]@{ profile = $profile; detections = $found }
     }
+
+    # The acceptance check every destination shares (engine repository,
+    # distribution/acceptance/README.md): the same fixture and profiles, judged by the engine's
+    # driver, written as one receipt in the common format.
+    $contract = Join-Path $work 'contract'
+    New-Item -ItemType Directory -Path $contract -Force | Out-Null
+    git -C $contract init --quiet
+    git -C $contract fetch --quiet --depth=1 https://github.com/qrcode-ai-com/qrcode-barcode-scanner.git $contractCommit
+    git -C $contract checkout --quiet --detach FETCH_HEAD
+    if ((git -C $contract rev-parse HEAD) -cne $contractCommit) { throw 'Unexpected acceptance contract commit.' }
+    $driver = Join-Path $contract 'scripts/destination-acceptance.py'
+    $acceptance = Join-Path $env:RUNNER_TEMP 'scoop-acceptance-receipt.json'
+    $acceptanceArguments = @(
+        'cli', '--qrscan', 'qrscan', '--destination', 'Scoop bucket',
+        '--identifier', "qrcode-ai/$package", '--version', $version,
+        '--url', 'https://github.com/qrcode-ai-com/scoop-bucket',
+        '--install', "scoop install qrcode-ai/$package", '--receipt', $acceptance
+    )
+    if ($env:GITHUB_RUN_ID) {
+        $acceptanceArguments += @('--run-url', "$env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID")
+    }
+    & python $driver @acceptanceArguments | Out-Null
 } finally {
     Pop-Location
 }
@@ -89,6 +113,9 @@ if ($LASTEXITCODE -ne 0 -or (Test-Path -LiteralPath $shim) -or
     throw 'Uninstall did not remove the app and its PATH entry.'
 }
 if ((git -C $core rev-parse HEAD) -cne $scoopCommit) { throw 'Scoop core changed during the consumer run.' }
+# Close the acceptance receipt: the command must be gone from PATH.
+& python $driver removed --qrscan qrscan --uninstall "scoop uninstall $package" --receipt $acceptance | Out-Null
+& python $driver check $acceptance
 
 [ordered]@{
     version = $version
@@ -97,6 +124,7 @@ if ((git -C $core rev-parse HEAD) -cne $scoopCommit) { throw 'Scoop core changed
     bucket_commit = $bucketCommit
     scoop_commit = $scoopCommit
     scanner_commit = $scannerCommit
+    acceptance_contract_commit = $contractCommit
     manifest_sha256 = $manifestHash.ToLowerInvariant()
     archive_url = $manifest.architecture.'64bit'.url
     archive_sha256 = $manifest.architecture.'64bit'.hash
