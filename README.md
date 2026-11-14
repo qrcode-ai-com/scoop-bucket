@@ -75,3 +75,9 @@ The manifest installs the Windows x64 ZIP from [scanner release 0.11.0](https://
 Report scanning issues in the [scanner repository](https://github.com/qrcode-ai-com/qrcode-barcode-scanner/issues). Report Scoop installation issues in this repository.
 
 Maintained by **Thibaut Mélen & Nicolas Cella** for **QR Code AI**, a product of **SuperNovae Studio**. Component licenses retain their own terms.
+
+## Source license
+
+This bucket’s project-authored source and documentation use the [MIT License](LICENSE), with attribution to Thibaut Mélen & Nicolas Cella, QR Code AI and SuperNovae Studio. You may reuse and modify this source in commercial or proprietary projects while preserving the copyright and permission notice.
+
+The manifest currently installs the immutable scanner 0.11.0 binary. Its packaged AGPL-3.0-or-later license and third-party notices remain unchanged. The [scanner’s current MIT source](https://github.com/qrcode-ai-com/qrcode-barcode-scanner/blob/main/LICENSING.md) will reach installed binaries through a separately qualified and approved release. This bucket update does not publish a new engine version.
