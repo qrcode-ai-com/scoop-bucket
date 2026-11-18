@@ -29,6 +29,15 @@ Help me understand QR Code AI Scoop bucket for QR Code & Barcode Scanner, the op
 
 <!-- /qrcode-ai-readme-actions:v2 -->
 
+<p align="center">
+  <a href="https://github.com/qrcode-ai-com/qrcode-barcode-scanner">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/qrcode-ai-com/scoop-bucket/main/assets/banner-dark.png?v=03cf24f4f16f">
+      <img src="https://raw.githubusercontent.com/qrcode-ai-com/scoop-bucket/main/assets/banner-light.png?v=9f404986c288" alt="QR Code &amp; Barcode Scanner CLI for Windows: install qrscan with Scoop" width="100%">
+    </picture>
+  </a>
+</p>
+
 Use this Scoop bucket to install qrscan on Windows x64 from the checksum-pinned upstream release archive. The command reads saved image files and returns structured scanner output; it does not need a web account. Keep image paths with spaces quoted and retain the full barcode string, including leading zeroes, before passing the result into another script. Scoop manages the executable and its removal.
 
 The [QR code scanner](https://qrcode-ai.com/en-US/qr-code-scanner) and [barcode scanner](https://qrcode-ai.com/en-US/barcode-scanner) are the product’s browser scanning entry points. The [QR code scanner guide for the command-line](https://qrcode-ai.com/en-US/qr-code-scanner/cli) and [barcode scanner guide for the command-line](https://qrcode-ai.com/en-US/barcode-scanner/cli) are the corresponding integration routes. If those product pages are unavailable, use the installation and report instructions below.
