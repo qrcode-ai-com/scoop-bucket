@@ -32,8 +32,8 @@ Help me understand QR Code AI Scoop bucket for QR Code & Barcode Scanner, the op
 <p align="center">
   <a href="https://github.com/qrcode-ai-com/qrcode-barcode-scanner">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/qrcode-ai-com/scoop-bucket/main/assets/banner-dark.png?v=a5f210e42eab">
-      <img src="https://raw.githubusercontent.com/qrcode-ai-com/scoop-bucket/main/assets/banner-light.png?v=e9f545f11fe0" alt="QR Code &amp; Barcode Scanner CLI for Windows: install qrscan with Scoop" width="100%">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/qrcode-ai-com/scoop-bucket/main/assets/banner-dark.png?v=03cf24f4f16f">
+      <img src="https://raw.githubusercontent.com/qrcode-ai-com/scoop-bucket/main/assets/banner-light.png?v=9f404986c288" alt="QR Code &amp; Barcode Scanner CLI for Windows: install qrscan with Scoop" width="100%">
     </picture>
   </a>
 </p>
