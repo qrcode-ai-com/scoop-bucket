@@ -1,3 +1,12 @@
+<p align="center">
+  <a href="https://github.com/qrcode-ai-com/qrcode-barcode-scanner-rust">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/qrcode-ai-com/scoop-bucket/main/assets/banner-dark.gif?v=489226253705">
+      <img src="https://raw.githubusercontent.com/qrcode-ai-com/scoop-bucket/main/assets/banner-light.gif?v=38b02ff28ad4" alt="QR Code &amp; Barcode Scanner CLI for Windows: the Scoop logo, the scoop install commands in PowerShell, and a QR code and a barcode being read" width="100%">
+    </picture>
+  </a>
+</p>
+
 # QR Code AI Scoop bucket
 
 <!-- qrcode-ai-readme-actions:v2 -->
@@ -28,15 +37,6 @@ Help me understand QR Code AI Scoop bucket for QR Code & Barcode Scanner, the op
 </details>
 
 <!-- /qrcode-ai-readme-actions:v2 -->
-
-<p align="center">
-  <a href="https://github.com/qrcode-ai-com/qrcode-barcode-scanner-rust">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/qrcode-ai-com/scoop-bucket/main/assets/banner-dark.gif?v=489226253705">
-      <img src="https://raw.githubusercontent.com/qrcode-ai-com/scoop-bucket/main/assets/banner-light.gif?v=38b02ff28ad4" alt="QR Code &amp; Barcode Scanner CLI for Windows: the Scoop logo, the scoop install commands in PowerShell, and a QR code and a barcode being read" width="100%">
-    </picture>
-  </a>
-</p>
 
 Use this Scoop bucket to install qrscan on Windows x64 from the checksum-pinned upstream release archive. The command reads saved image files and returns structured scanner output; it does not need a web account. Keep image paths with spaces quoted and retain the full barcode string, including leading zeroes, before passing the result into another script. Scoop manages the executable and its removal.
 
