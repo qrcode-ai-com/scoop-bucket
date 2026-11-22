@@ -46,6 +46,19 @@ To prepare a known input, create a QR image with the [QR code generator](https:/
 
 Install `qrscan`, the [QR Code AI](https://qrcode-ai.com/en-US/qr-code-scanner/cli) command-line scanner, with Scoop on Windows x64. It decodes QR codes, barcodes and supported 2D codes from local image files. The scanner returns decoded data as JSON by default and works without a web account.
 
+## How it works
+
+<!-- qrcode-ai-readme-media:v1 -->
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/qrcode-ai-com/.github/main/profile/assets/how-cli-dark.gif?v=5b861170b5d2">
+    <img src="https://raw.githubusercontent.com/qrcode-ai-com/.github/main/profile/assets/how-cli-light.gif?v=a700b1da82fb" alt="How qrscan works, in three steps: install qrscan, pass an image file, and read the JSON report" width="100%">
+  </picture>
+</p>
+<!-- /qrcode-ai-readme-media:v1 -->
+
+The picture shows the three steps: install qrscan, pass an image file and read the JSON report. The commands for this destination follow.
+
 ## Install and scan
 
 Install [Scoop](https://scoop.sh/) and make sure `git` is on your PATH. Run the following commands in PowerShell.
