@@ -1,8 +1,8 @@
 <p align="center">
   <a href="https://github.com/qrcode-ai-com/qrcode-barcode-scanner-rust">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/qrcode-ai-com/scoop-bucket/main/assets/banner-dark.gif?v=489226253705">
-      <img src="https://raw.githubusercontent.com/qrcode-ai-com/scoop-bucket/main/assets/banner-light.gif?v=38b02ff28ad4" alt="QR Code &amp; Barcode Scanner CLI for Windows: the Scoop logo, the scoop install commands in PowerShell, and a QR code and a barcode being read" width="100%">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/qrcode-ai-com/.github/main/profile/assets/banner-scoop-dark.gif?v=69c8aea9275f">
+      <img src="https://raw.githubusercontent.com/qrcode-ai-com/.github/main/profile/assets/banner-scoop-light.gif?v=4fde7bee2a56" alt="QR Code &amp; Barcode Scanner CLI for Windows: the Scoop logo, the scoop install commands in PowerShell, and a QR code and a barcode being read" width="100%">
     </picture>
   </a>
 </p>
