@@ -8,7 +8,7 @@ if ([Runtime.InteropServices.RuntimeInformation]::OSArchitecture -ne 'X64') {
 
 $package = 'qrcode-barcode-scanner'
 $scoopCommit = 'e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f' # Scoop v0.6.0
-$scannerCommit = '176ac96ef16ee330dbfc6ada10327d0b4e23a8b2' # Scanner v0.11.0
+$scannerCommit = '897dd50cdf27cbde54d408bf65e1ca4622035d42' # Scanner v0.12.0
 # The engine commit that supplies the destination acceptance driver and its truth case.
 $contractCommit = 'de3fa34764e891d167ebc55d01f3761d1289050a'
 $fixtureHash = 'c636e8d56df483ff1ec06dbe9b5bcba226c579f8fc1c3d10c4ccf4e100762ec8'
@@ -67,7 +67,7 @@ try {
     if ($banner -cne "qrscan $version") { throw "Unexpected version banner $banner." }
 
     $fixture = 'mixed codes.png'
-    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/qrcode-ai-com/qrcode-barcode-scanner/$scannerCommit/fixtures/symbology/mixed-code128-qr.png" -OutFile $fixture
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/qrcode-ai-com/qrcode-barcode-scanner-rust/$scannerCommit/fixtures/symbology/mixed-code128-qr.png" -OutFile $fixture
     if ((Get-FileHash -LiteralPath $fixture -Algorithm SHA256).Hash -ine $fixtureHash) {
         throw 'Mixed-symbol fixture SHA-256 mismatch.'
     }
