@@ -8,7 +8,7 @@ if ([Runtime.InteropServices.RuntimeInformation]::OSArchitecture -ne 'X64') {
 
 $package = 'qrcode-barcode-scanner'
 $scoopCommit = 'e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f' # Scoop v0.6.0
-$scannerCommit = '5b2c580c78b0693e58909f889b66f24fc1c548b1' # Scanner v0.12.1
+$scannerCommit = 'd0fcf8a27410f5ee182aab6477624e3fc52c4aa5' # Scanner v0.12.2
 # The engine commit that supplies the destination acceptance driver and its truth case.
 $contractCommit = 'de3fa34764e891d167ebc55d01f3761d1289050a'
 $fixtureHash = 'c636e8d56df483ff1ec06dbe9b5bcba226c579f8fc1c3d10c4ccf4e100762ec8'
